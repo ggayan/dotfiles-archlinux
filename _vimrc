@@ -139,6 +139,9 @@ set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 " don't bell or blink
 set noerrorbells
 set vb t_vb=
@@ -199,6 +202,8 @@ set noautoread              " Don't automatically re-read changed files.
 set modeline                " Allow vim options to be embedded in files;
 set modelines=5             " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
+" utf-8 default encoding
+set enc=utf-8
 
 """" Messages, Info, Status
 set ls=2                    " allways show status line
@@ -224,9 +229,10 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme solarized
+    colorscheme Tomorrow-Night
+    set guifont=Menlo:h14
 else
-    colorscheme torte
+    colorscheme Tomorrow-Night
 endif
 
 " Paste from clipboard
@@ -263,6 +269,20 @@ let g:acp_completeoptPreview=1
 " Mako/HTML
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+fun! s:SelectHTML()
+  let n = 1
+  while n < 50 && n < line("$")
+    " check for django
+    if getline(n) =~ '{%\s*\(extends\|load\|block\|if\|for\|include\|trans\)\>'
+      set ft=htmldjango
+      return
+    endif
+    let n = n + 1
+  endwhile
+  " go with html
+  set ft=html
+endfun
+autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
 
 " Python
 "au BufRead *.py compiler nose
@@ -271,8 +291,6 @@ au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smart
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
-
-
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
@@ -290,3 +308,4 @@ EOF
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
+
