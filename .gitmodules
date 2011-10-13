@@ -1,9 +1,6 @@
 [submodule "_vim/bundle/fugitive"]
 	path = _vim/bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
-[submodule "_vim/bundle/snipmate"]
-	path = _vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "_vim/bundle/surround"]
 	path = _vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
@@ -12,13 +9,13 @@
 	url = https://github.com/tpope/vim-git.git
 [submodule "_vim/bundle/minibufexpl"]
 	path = _vim/bundle/minibufexpl
-	url = https://github.com/sontek/minibufexpl.vim.git
+	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "_vim/bundle/command-t"]
 	path = _vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
 [submodule "_vim/bundle/pyflakes"]
 	path = _vim/bundle/pyflakes
-	url = https://github.com/mitechie/pyflakes-pathogen.git
+	url = https://github.com/kevinw/pyflakes-vim.git
 [submodule "_vim/bundle/ack"]
 	path = _vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -36,19 +33,38 @@
 	url = https://github.com/alfredodeza/pytest.vim.git
 [submodule "_vim/bundle/makegreen"]
 	path = _vim/bundle/makegreen
-	url = https://github.com/reinh/vim-makegreen
+	url = https://github.com/reinh/vim-makegreen.git
 [submodule "_vim/bundle/tasklist"]
 	path = _vim/bundle/tasklist
 	url = https://github.com/vim-scripts/TaskList.vim.git
 [submodule "_vim/bundle/nerdtree"]
 	path = _vim/bundle/nerdtree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "_vim/bundle/ropevim"]
 	path = _vim/bundle/ropevim
-	url = https://github.com/sontek/rope-vim.git
+	url = https://github.com/klen/rope-vim.git
 [submodule "_vim/bundle/acp"]
 	path = _vim/bundle/acp
 	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule "_vim/bundle/solarized"]
 	path = _vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "_vim/bundle/tlib_vim"]
+	path = _vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "_vim/bundle/vim-addon-mw-utils"]
+	path = _vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "_vim/bundle/snipmate-snippets"]
+	path = _vim/bundle/snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
+[submodule "_vim/bundle/vim-snipmate"]
+	path = _vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "_vim/bundle/supertab"]
+	path = _vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim-pathogen"]
+	path = vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+

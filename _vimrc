@@ -192,8 +192,8 @@ set foldlevel=99            " don't fold by default
 inoremap # #
 
 " close preview window automatically when we move around
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """" Reading/Writing
 set noautowrite             " Never write a file unless I request it.
@@ -229,10 +229,12 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme Tomorrow-Night
-    set guifont=Menlo:h14
+    colorscheme solarized
+    set guifont=Menlo:h12
+    let g:solarized_termcolors=256
+    let g:solarized_visibility =  "medium"
 else
-    colorscheme Tomorrow-Night
+    colorscheme molokai
 endif
 
 " Paste from clipboard
@@ -256,12 +258,14 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 au BufRead *.js set makeprg=jslint\ %
 
 " Don't allow snipmate to take over tab
-autocmd VimEnter * ino <c-j> <c-r>=TriggerSnippet()<cr>
+" autocmd VimEnter * ino <c-j> <c-r>=TriggerSnippet()<cr>
 " Use tab to scroll through autocomplete menus
-autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
-autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-let g:acp_completeoptPreview=1
+" autocmd VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
+" autocmd VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
+" snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+" let g:acp_completeoptPreview=1
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
 
 " ===========================================================
 " FileType specific changes
@@ -290,7 +294,7 @@ au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
-let g:pyflakes_use_quickfix = 0
+let g:pyflakes_use_quickfix = 1
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
