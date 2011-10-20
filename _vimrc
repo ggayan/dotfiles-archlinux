@@ -1,84 +1,11 @@
-" https://github.com/sontek/dotfiles/
-" ==========================================================
-" Dependencies - Libraries/Applications outside of vim
-" ==========================================================
-" Pep8 - http://pypi.python.org/pypi/pep8
-" Pyflakes
-" Ack
-" Rake & Ruby for command-t
-" nose, django-nose
-
-" ==========================================================
-" Plugins included
-" ==========================================================
-" Pathogen
-"     Better Management of VIM plugins
-"
-" GunDo
-"     Visual Undo in vim with diff's to check the differences
-"
-" Pytest
-"     Runs your Python tests in Vim.
-"
-" Commant-T
-"     Allows easy search and opening of files within a given path
-"
-" Snipmate
-"     Configurable snippets to avoid re-typing common comands
-"
-" PyFlakes
-"     Underlines and displays errors with Python on-the-fly
-"
-" Fugitive
-"    Interface with git from vim
-"
-" Git
-"    Syntax highlighting for git config files
-"
-" Minibufexpl
-"    Visually display what buffers are currently opened
-"
-" Pydoc
-"    Opens up pydoc within vim
-"
-" Surround
-"    Allows you to surround text with open/close tags
-"
-" Py.test
-"    Run py.test test's from within vim
-"
-" MakeGreen
-"    Generic test runner that works with nose
-"
-" ==========================================================
-" Shortcuts
-" ==========================================================
 set nocompatible              " Don't be compatible with vi
 let mapleader=","             " change the leader to be a comma vs slash
-
-" Seriously, guys. It's not like :W is bound to anything anyway.
-command! W :w
-
-" sudo write this
-cmap W! w !sudo tee % >/dev/null
-
 
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
 
 " Run pep8
 let g:pep8_map='<leader>8'
-
-" run py.test's
-nmap <silent><Leader>tf <Esc>:Pytest file<CR>
-nmap <silent><Leader>tc <Esc>:Pytest class<CR>
-nmap <silent><Leader>tm <Esc>:Pytest method<CR>
-nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><Leader>te <Esc>:Pytest error<CR>
-
-" Run django tests
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
@@ -89,18 +16,15 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
 
-" for when we forget to use sudo to open/edit a file
-cmap w!! w !sudo tee % >/dev/null
-
 " ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+"map <c-h> <c-w>h
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
-imap <C-W> <C-O><C-W>
+" map <C-W> <C-O><C-W>
 
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
@@ -113,11 +37,6 @@ nmap <leader>a <Esc>:Ack!
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
 
-" Jump to the definition of whatever the cursor is on
-map <leader>j :RopeGotoDefinition<CR>
-
-" Rename whatever the cursor is on (including references to it)
-map <leader>r :RopeRename<CR>
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -144,7 +63,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " don't bell or blink
 set noerrorbells
-set vb t_vb=
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
@@ -231,7 +149,6 @@ set incsearch               " Incrementally search while typing a /regex
 if has("gui_running")
     colorscheme solarized
     set guifont=Menlo:h12
-    let g:solarized_termcolors=256
     let g:solarized_visibility =  "medium"
 else
     colorscheme molokai
@@ -266,6 +183,27 @@ au BufRead *.js set makeprg=jslint\ %
 " let g:acp_completeoptPreview=1
 "let g:SuperTabMappingForward = '<c-space>'
 "let g:SuperTabMappingBackward = '<s-c-space>'
+" Minibufexpl
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplTabWrap = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMaxSize = 1
+let g:miniBufExplorerMoreThanOne = 1
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_quiet_warnings=1
+
+" snipMate
+" superTab
+let g:SuperTabDefaultCompletionType = "context"
 
 " ===========================================================
 " FileType specific changes

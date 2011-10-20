@@ -67,4 +67,12 @@
 [submodule "vim-pathogen"]
 	path = vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "_vim/bundle/css-color"]
+	path = _vim/bundle/css-color
+	url = https://github.com/skammer/vim-css-color.git
