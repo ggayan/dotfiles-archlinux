@@ -11,7 +11,7 @@ export ZSH_THEME="steeef"
 # export CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+export DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
@@ -20,11 +20,11 @@ export ZSH_THEME="steeef"
 # export DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump brew cloudapp compleat django extract git github git-flow node npm osx pip python ruby rvm zsh-syntax-highlighting)
+plugins=(autojump brew cloudapp compleat django extract git github git-flow node npm osx pip python ruby zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
