@@ -8,6 +8,7 @@ filetype off
 " call pathogen#runtime_append_all_bundles()
 " call pathogen#helptags()
 call pathogen#infect()
+call pathogen#helptags()
 
 " ==============
 " Basic Settings
@@ -152,6 +153,9 @@ let NERDTreeChDirMode=2 " CWD is changed whenever the tree root is changed
 " Tagbar
 autocmd VimEnter * nested TagbarOpen
 
+"python-mode
+let g:pymode_syntax = 1 " Enable pymode's custom syntax highlighting
+
 " =========================
 " FileType specific changes
 " =========================
@@ -177,7 +181,6 @@ autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-let g:pyflakes_use_quickfix = 0 " Don't let pyflakes use the quickfix window
 
 " Add the virtualenv's site-packages to vim path
 
@@ -203,9 +206,6 @@ endif
 
 " change the leader to be a comma vs slash
 let mapleader=","
-
-" Run pep8
-let g:pep8_map='<leader>8'
 
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
