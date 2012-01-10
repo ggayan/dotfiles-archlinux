@@ -109,6 +109,8 @@ if has("gui_running")
     colorscheme solarized
     set guifont=Menlo:h12
     let g:solarized_visibility =  "medium"
+    " Tagbar
+    autocmd VimEnter * nested TagbarOpen
 else
     colorscheme molokai
 endif
@@ -150,8 +152,6 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeChDirMode=2 " CWD is changed whenever the tree root is changed
 
-" Tagbar
-autocmd VimEnter * nested TagbarOpen
 
 "python-mode
 let g:pymode_syntax = 1 " Enable pymode's custom syntax highlighting
