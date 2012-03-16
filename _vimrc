@@ -202,8 +202,11 @@ nmap <leader>cc :cclose<CR>
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
-" Run command-t file search
-map <leader>f :CommandT<CR>
+" Run CtrlP file search
+map <leader>f :CtrlP<CR>
+
+map <leader>b :CtrlPBuffer<CR>
+
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
