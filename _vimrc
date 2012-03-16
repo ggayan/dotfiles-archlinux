@@ -117,25 +117,6 @@ else
 endif
 set t_Co=256
 
-" Minibufexpl
-"
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplTabWrap = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMaxSize = 1
-
-" MiniBufExpl Colors
-"
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
-
 " syntastic
 "
 set statusline+=%#warningmsg#
@@ -209,9 +190,6 @@ endif
 " change the leader to be a comma vs slash
 let mapleader=","
 
-" Toggle the tasklist
-map <leader>td <Plug>TaskList
-
 " ,v brings up my .vimrc
 " ,V reloads it -- making all changes active (have to save first)
 map <leader>v :sp ~/.vimrc<CR><C-W>_
@@ -226,9 +204,6 @@ map <leader>n :NERDTreeToggle<CR>
 
 " Run command-t file search
 map <leader>f :CommandT<CR>
-
-" Ack searching
-nmap <leader>a <Esc>:Ack!
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
