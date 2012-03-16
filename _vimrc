@@ -106,14 +106,16 @@ set listchars=tab:›-,trail:·,eol:¬,precedes:<,extends:> " mark trailing whit
 set list
 
 if has("gui_running")
-    colorscheme solarized
-    set guifont=Menlo:h12
-    let g:solarized_visibility =  "medium"
+    "colorscheme solarized
+    colorscheme molokai
+    "set guifont=Menlo:h12
+    "let g:solarized_visibility =  "medium"
     " Tagbar
     autocmd VimEnter * nested TagbarOpen
 else
     colorscheme molokai
 endif
+set t_Co=256
 
 " Minibufexpl
 "
