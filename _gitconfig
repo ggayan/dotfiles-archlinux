@@ -15,13 +15,11 @@
     ci = commit
     co = checkout
     br = branch
+    meld = !/home/mak/bin/git-meld/git-meld.pl
 
 [user]
     name = Gabriel Gayan
     email = gabrielgayan@gmail.com
-
-[github]
-    user = ggayan
 
 [push]
     default = matching

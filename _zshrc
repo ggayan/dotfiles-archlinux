@@ -24,7 +24,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(archlinux autojump django extract git node npm pip python ruby svn zsh-syntax-highlighting)
+plugins=(archlinux autojump extract git github git-flow pip python zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
