@@ -1,8 +1,31 @@
+[user]
+    name = Gabriel Gayan
+    email = gabrielgayan@gmail.com
+
 [core]
     autocrlf = false
     excludesfile = ~/.global_ignore
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[gc]
+    # Do not remove references under .git/refs/heads and .git/refs/tags when
+    # git gc is run. The default behavior of git-gc is to pack the references
+    # and store the packed references in .git/packed-refs. I personally find
+    # the references kept in files under .git/refs very useful, they make the
+    # retrieval of branch or tag info very easy from a shell script so I do
+    # not want to have them packed when I run git-gc.
+    packrefs = 0
+
+[alias]
+    s = status
+    ci = commit
+    co = checkout
+    b = branch
+    d = diff
+    a = add
+    l = log
+    meld = !/home/mak/bin/git-meld/git-meld.pl
 
 [color]
     branch = auto
@@ -10,19 +33,44 @@
     interactive = auto
     status = auto
 
-[alias]
-    st = status
-    ci = commit
-    co = checkout
-    br = branch
-    meld = !/home/mak/bin/git-meld/git-meld.pl
+[merge]
+    # Include the summary of merged commits into all newly created merge
+    # commits. The newly created merge commit will contain a one-line summary
+    # of every (well, most) merged commits.
+    log = true
 
-[user]
-    name = Gabriel Gayan
-    email = gabrielgayan@gmail.com
+    # Show merge statistics after merge.
+    stat = true
+    defaultToUpstream = true
+
+
+[branch]
+    # When creating a new branch off a remote branch, always set it up to
+    # track the remote branch so that we can pull from there.
+    autoseupmerge = always
 
 [push]
     default = matching
 
-[merge]
-    defaultToUpstream = true
+[branch "master"]
+    # This is the list of cmdline options that should be added to git-merge                                     
+    # when I merge commits into the master branch.                                                              
+    #                                                                                                           
+    # First off, the option --no-commit instructs git not to commit the merge                                   
+    # by default. This allows me to do some final adjustment to the commit log                                  
+    # message before it gets commited. I often use this to add extra info to                                    
+    # the merge message or rewrite my local branch names in the commit message                                  
+    # to branch names sensible to the casual reader of the git log.                                             
+    #                                                                                                           
+    # Option --no-ff instructs git to always record a merge commit, even if                                     
+    # the branch being merged into can be fast-forwarded. This is often the                                     
+    # case when you create a short-lived topic branch which tracks master, do                                   
+    # some changes on the topic branch and then merge the changes into the                                      
+    # master which remained unchanged while you were doing your work on the                                     
+    # topic branch. In this case the master branch can be fast-forwarded (that                                  
+    # is the tip of the master branch can be updated to point to the tip of                                     
+    # the topic branch) and this is what git does by default. With --no-ff                                      
+    # option set git creates a real merge commit which records the fact that                                    
+    # another branch was merged. I find this easier to understand and read in                                   
+    # the log.                                                                                                  
+    mergeoptions = --no-commit --no-ff
