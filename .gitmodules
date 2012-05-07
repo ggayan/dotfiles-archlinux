@@ -49,3 +49,6 @@
 [submodule "_vim/bundle/tlib"]
 	path = _vim/bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "_vim/bundle/vundle"]
+	path = _vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git

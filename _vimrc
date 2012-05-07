@@ -10,6 +10,15 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" ======
+" Vundle
+" ======
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
 " ==============
 " Basic Settings
 " ==============
@@ -31,12 +40,12 @@ set completeopt=menuone,longest,preview    " Insert completion
 set pumheight=6                            " Keep a small completion window
 set grepprg=ack-grep                       " replace the default grep program with ack
  if has("gui_running")                     " show a line at column 79
-    set colorcolumn=79
+     "set colorcolumn=79
 endif
 
 
 " Remember cursor position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 
 """ Moving Around/Editing
@@ -122,9 +131,11 @@ set t_Co=256
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_quiet_warnings=1
+let g:syntastic_auto_jump=1
 
 " superTab
 
@@ -182,6 +193,11 @@ EOF
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
+
+" PHP
+au FileType php set omnifunc=phpcomplete#CompletePHP
+let php_sql_query=1
+let php_htmlInStrings=1
 
 " ============
 " Key Bindings
