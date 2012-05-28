@@ -25,6 +25,7 @@
     d = diff
     a = add
     l = log
+    f = fetch
     meld = !/home/mak/bin/git-meld/git-meld.pl
 
 [color]
@@ -73,4 +74,4 @@
     # option set git creates a real merge commit which records the fact that                                    
     # another branch was merged. I find this easier to understand and read in                                   
     # the log.                                                                                                  
-    mergeoptions = --no-commit --no-ff
+    # mergeoptions = --no-ff
